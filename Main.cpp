@@ -1,21 +1,12 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "GraphWindow.h"
-#include "Header.h"
+#include "Top.h"
 
 int main()
 {
-	//sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
-
-    sf::CircleShape TopExample1(95);
-    TopExample1.setFillColor(sf::Color(0, 0, 0));
-    TopExample1.setOutlineThickness(5);
-    TopExample1.setPosition(100, 200);
-
-    sf::CircleShape TopExample2(100);
-    TopExample2.setFillColor(sf::Color(0, 0, 0));
-    TopExample2.setOutlineThickness(5);
-    TopExample2.setPosition(500, 200);
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
+    Top A;
+    A.setCenter(200, 200);
 
     while (window.isOpen())
     {
@@ -26,12 +17,8 @@ int main()
                 window.close();
         }
 
-        window.clear();
-        example();
-        window.draw(TopExample1);
-        window.draw(TopExample2);
+        window.setActive();
+        A.Show(&window);
         window.display();
     }
-
-	std::cout << "Hello, world!\n";
 }
